@@ -34,67 +34,7 @@ client.on('ready', () => {
     console.log(`Logged in as ${client.user.tag}!`);
 });
 
-client.on('message', msg => {
-    if (msg.content === '/uptime') {
-      if (msg.channel.id === '744531622300483677'){
-        tcpp.probe(proxys[0], proxyPort, function(err99, check123){
-            if (check123){
-                DC_Uptime_check = true;
-            }else{
-                DC_Uptime_check = false;
-            }
-        })
-        tcpp.probe(proxys[1], proxyPort, function(err999, check1239){
-            if (check1239){
-                DC_Uptime_check = true;
-            }
-        })
-        tcpp.probe(proxys[1], proxyPort, function(err9999, check12399){
-            if (check12399){
-                DC_Uptime_check = true;
-            }
-        })
-      }
-      if (DC_Uptime_check){
-          msg.channel.send("Server seems to be online!");
-      }else{
-          msg.channel.send("Server seems to be offline!");
-      }
-    }
-});
-
 client.login('');
-
-app.get('/status', (req1, res1) =>{
-    setTimeout(function(){
-        res.send(check1var, check2var, check3var);
-    }, 5000);
-    // Check the 1. Server uptime
-    tcpp.probe(proxys[0], proxyPort, function(err0, check1){
-        if (check1){
-            check1var = true;
-        }else{
-            console.log("Server 1 seems to be down!");
-        }
-    })
-    // Check the 2. Server uptime
-    tcpp.probe(proxys[1], proxyPort, function(err00, check2){
-        if (check2){
-            check2var = true;
-        }else{
-            console.log("Server 2 seems to be down!");
-        }
-    })
-    // Check the 3. Server uptime
-    tcpp.probe(proxys[2], proxyPort, function(err000, check3){
-        if (check3){
-            check3var = true;
-        }else{
-            console.log("Server 3 seems to be down!");
-        }
-    })
-})
-
 
 app.listen(port, () => {
     console.log(`Example app listening at http://localhost:${port}`)
